@@ -6,7 +6,7 @@ ENV CADDY_URI https://github.com/mholt/caddy/releases/download/v0.10.11/caddy_v0
 
 #RUN yum install -y curl
 
-RUN echo "Installing nodejs" &&  mkdir -p /opt/node && cd /opt/node && curl -L "${NODE_URI}" | tar -xvz && /opt/node/bin/node -v
+RUN echo "Installing nodejs" &&  mkdir -p /opt/node && cd /opt/node && curl -L "${NODE_URI}" | tar -xvz --strip-components=1 && /opt/node/bin/node -v
 
 RUN echo "Installing caddy" && mkdir -p /opt/caddy && cd /opt/caddy && curl -L "${CADDY_URI}" | tar -xvz &&  /opt/caddy/caddy -v
     
