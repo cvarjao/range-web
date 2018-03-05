@@ -15,17 +15,18 @@ if [[ "$1" == "-h" ]]; then
 fi
 
 
-mkdir /tmp/nodejs
+#mkdir /tmp/nodejs
 
-( cd /tmp/nodejs && wget -qO- "${NODE_URI}" | tar -Jx )
-find /tmp/nodejs -type f -name npm
-find /tmp/nodejs -type f -name node
+#( cd /tmp/nodejs && wget -qO- "${NODE_URI}" | tar -Jx )
+#find /tmp/nodejs -type f -name npm
+#find /tmp/nodejs -type f -name node
 
-/tmp/nodejs/npm i
-/tmp/nodejs/npm i escape-string-regexp
-/tmp/nodejs/npm -v
-/tmp/nodejs/node -v
+#/tmp/nodejs/npm i
+#/tmp/nodejs/npm i escape-string-regexp
+#/tmp/nodejs/npm -v
+#/tmp/nodejs/node -v
 
+echo "End of assemble script"
 exit 1
 
 # Restore artifacts from the previous build (if they exist).
