@@ -1,13 +1,13 @@
 FROM registry.access.redhat.com/rhel7/rhel
 
 ENV NODE_URI 'https://nodejs.org/dist/v9.7.0/node-v9.7.0-linux-x64.tar.xz'
-ENV CADDY_URI 'https://caddyserver.com/download/build?os=linux&arch=amd64&features=DNS%2Cawslambda%2Ccors%2Cexpires%2Cfilemanager%2Cgit%2Chugo%2Cipfilter%2Cjsonp%2Cjwt%2Clocale%2Cmailout%2Cminify%2Cmultipass%2Cprometheus%2Cratelimit%2Crealip%2Csearch%2Cupload%2Ccloudflare%2Cdigitalocean%2Cdnsimple%2Cdyn%2Cgandi%2Cgooglecloud%2Clinode%2Cnamecheap%2Crfc2136%2Croute53%2Cvultr'
+ENV CADDY_URI 'https://github.com/mholt/caddy/releases/download/v0.10.11/caddy_v0.10.11_linux_amd64.tar.gz'
 
 
 #RUN yum install -y curl
 
 RUN echo 'Installing nodejs' &&  mkdir -p /opt/node && cd /opt/node && curl "${NODE_URI}" | tar -Jx
 
-RUN echo 'Installing caddy' && curl "${CADDY_URI}" \
-    | tar --no-same-owner -C /usr/bin/ -xz caddy
+RUN echo 'Installing caddy' && mkdir -p /opt/caddy && cd /opt/caddy && curl "${CADDY_URI}" \
+    | tar --no-same-owner -Jx
     
