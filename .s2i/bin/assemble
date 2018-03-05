@@ -1,4 +1,4 @@
-#!/bin/sh -ex
+#!/bin/sh
 #
 # S2I assemble script for the 's2i-caddy' image.
 # The 'assemble' script builds your application source so that it is ready to run.
@@ -13,7 +13,7 @@ if [[ "$1" == "-h" ]]; then
 	# print the usage.
 	exec /usr/libexec/s2i/usage
 fi
-
+set -x
 
 #mkdir /tmp/nodejs
 
