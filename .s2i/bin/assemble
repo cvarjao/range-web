@@ -6,6 +6,7 @@
 # For more information refer to the documentation:
 #	https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md
 #
+NODE_URI='https://nodejs.org/dist/v9.7.0/node-v9.7.0-linux-x64.tar.xz'
 
 if [[ "$1" == "-h" ]]; then
 	# If the 's2i-caddy' assemble script is executed with '-h' flag,
@@ -13,12 +14,26 @@ if [[ "$1" == "-h" ]]; then
 	exec /usr/libexec/s2i/usage
 fi
 
+
+mkdir /tmp/nodejs
+
+( cd /tmp/nodejs && curl "${NODE_URI}" | tar -Jx )
+find /tmp/nodejs -type f -name npm
+find /tmp/nodejs -type f -name node
+
+/tmp/nodejs/npm i
+/tmp/nodejs/npm i escape-string-regexp
+/tmp/nodejs/npm -v
+/tmp/nodejs/node -v
+
+exit 1
+
 # Restore artifacts from the previous build (if they exist).
 #
-if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
-  echo "---> Restoring build artifacts..."
-  mv /tmp/artifacts/. ./
-fi
+#if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
+#  echo "---> Restoring build artifacts..."
+#  mv /tmp/artifacts/. ./
+#fi
 
 echo "---> Installing application source..."
 cp -Rf /tmp/src/* /var/www/html
