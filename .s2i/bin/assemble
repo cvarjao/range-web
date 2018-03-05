@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/sh -ex
 #
 # S2I assemble script for the 's2i-caddy' image.
 # The 'assemble' script builds your application source so that it is ready to run.
