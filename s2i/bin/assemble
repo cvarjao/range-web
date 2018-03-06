@@ -7,7 +7,7 @@ echo "hello again!"
 NODE_URI=https://nodejs.org/dist/v9.7.0/node-v9.7.0-linux-x64.tar.gz
 PATH="${PATH}:/opt/node/bin"
 
-echo "Installing nodejs" &&  mkdir -p /tmp/node && cd /tmp/node && curl -L "${NO$
+echo "Installing nodejs" &&  mkdir -p /tmp/node && cd /tmp/node && curl -L "${NODE_URI}  | tar -xvz --strip-components=1 && /tmp/node/bin/node -v
 
 cd /tmp/src
 npm i
