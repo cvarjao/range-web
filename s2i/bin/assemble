@@ -25,4 +25,4 @@ node -v
 npm run build
 #npm test
 
-ls -la /tmp/src/build/
+cp -Rf /tmp/src/build/* /var/www/html
