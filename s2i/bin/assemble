@@ -12,6 +12,10 @@ mkdir -p /tmp/node
 cd /tmp/node
 curl -L "${NODE_URI}" | tar -xvz --strip-components=1
 /tmp/node/bin/node -v
+mkdir -p /tmp/home
+HOME=/tmp/home
+
+export HOME
 
 cd /tmp/src
 npm i
