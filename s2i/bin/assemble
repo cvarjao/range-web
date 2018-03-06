@@ -1,4 +1,18 @@
 #!/bin/sh
 set -e
 
-echo "hello!"
+echo "hello again!"
+
+
+NODE_URI=https://nodejs.org/dist/v9.7.0/node-v9.7.0-linux-x64.tar.gz
+PATH="${PATH}:/opt/node/bin"
+
+echo "Installing nodejs" &&  mkdir -p /tmp/node && cd /tmp/node && curl -L "${NO$
+
+cd /tmp/src
+npm i
+npm i escape-string-regexp
+npm -v
+node -v
+npm run build
+npm test
